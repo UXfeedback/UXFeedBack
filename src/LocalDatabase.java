@@ -61,9 +61,14 @@ public class LocalDatabase extends SQLiteOpenHelper {
 		}
 		
 		
-		public void Local_Add()
-		{
-			
+		public void Local_Add() {
+			// Add data to database on mobile device
 		}
+		
+		public void Online_Add() {
+			// Add data to online database
+		}
+		
+		
 		
 }

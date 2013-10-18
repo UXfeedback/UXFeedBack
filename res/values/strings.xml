@@ -4,5 +4,7 @@
     <string name="app_name">UX-FeedBack</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">!!!!!!!!!</string>
+    <string name="title_activity_survey_popup__method1">SurveyPopup_Method1</string>
+    <string name="title_activity_survey_popup__method2">SurveyPopup_Method2</string>
 
 </resources>

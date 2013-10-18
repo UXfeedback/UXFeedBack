@@ -1,3 +1,4 @@
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -60,13 +61,36 @@ public class LocalDatabase extends SQLiteOpenHelper {
 		//we do something
 		}
 		
+		public void Sync() {
+			//Query localdatabase check last insert 
+			//if true
+			//Call Local_Add
+			//else
+			//Call Online_Add
+			
+		}
+		
 		
 		public void Local_Add() {
 			// Add data to database on mobile device
+			
+			ContentValues Values = new ContentValues();
+			
+			Values.put(key, value);
+			
+			SQLiteDatabase wdb = getWritableDatabase();
+			
+			wdb.insert(table, nullColumnHack, values);
+			
+			Online_Add();
+			
+			wdb.close();
 		}
 		
 		public void Online_Add() {
 			// Add data to online database
+			
+			
 		}
 		
 		

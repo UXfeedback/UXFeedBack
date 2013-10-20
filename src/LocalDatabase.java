@@ -93,11 +93,11 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				
 				//Switch case (Methode1, Methode2)
 				
-				Values.put(key, value);
-				
-				
-				
-				
+				//Values.put(key, value);
+				//Values.put(key, value);
+				//Values.put(key, value);
+				//Values.put(key, value);
+				//Values.put(key, value);
 				
 				SQLiteDatabase wdb = getWritableDatabase();
 				

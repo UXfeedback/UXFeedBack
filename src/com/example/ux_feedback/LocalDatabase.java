@@ -1,27 +1,29 @@
 package com.example.ux_feedback;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 
 public class LocalDatabase extends SQLiteOpenHelper {
 	
-	//TABLE 1
-		String TABLE_NAME1 = "Methode_1";
-		String ID_DATA = "ID_DATA";
-		String ID_USER = "ID_USER";
-		String DATA  = "DATA";
-		String POSITION = "POSITION";
-		String CHECK = "CHECK";
-		String DATE = "DATE";
+		//TABLE 1
+		public static String TABLE_NAME1 = "Methode_1";
+		public static String ID_DATA = "ID_DATA";
+		public static String ID_USER = "ID_USER";
+		public static String DATA  = "DATA";
+		public static String POSITION = "POSITION";
+		public static String CHECK = "CHECK";
+		public static String DATE = "DATE";
 		
 		//TABLE 2
-		String TABLE_NAME2 = "Methode_2";
+		public static String TABLE_NAME2 = "Methode_2";
 		
 		//TABLE 3
-		String TABLE_NAME3 = "USE_DATA";
-		String AKTIVITY = "AKTIVITY";
+		public static String TABLE_NAME3 = "USE_DATA";
+		public static String AKTIVITY = "AKTIVITY";
 		
 		private static final String DATABASE_NAME = "localdatabase";
 			private static final int DATABASE_VERSION = 1;
@@ -38,7 +40,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
 						 + DATA + " TEXT,"
 						 + POSITION + " TEXT,"
 						 + DATE + " DATETIME, "
-						 + CHECK + " BOOL)";
+						 + CHECK + " INT)";
 				 
 				 db.execSQL(Table1);
 				 
@@ -46,7 +48,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
 						 + " (" + ID_DATA + "INTEGER PRIMARY AUTOINCREMENT,"
 						 + ID_USER + " INTEGER,"
 						 + DATA + " TEXT,"
-						 + CHECK + " BOOL)";
+						 + CHECK + " INT)";
 				db.execSQL(Table2);
 				
 				String Table3 = "CREATE TABLE " + TABLE_NAME3
@@ -54,7 +56,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
 						+ ID_USER + " INTEGER,"
 						+ AKTIVITY + "TEXT, "
 						+ DATE + " DATETIME, "
-						+ CHECK + " BOOL)";
+						+ CHECK + " INT)";
 				db.execSQL(Table3);
 			}
 			
@@ -62,8 +64,8 @@ public class LocalDatabase extends SQLiteOpenHelper {
 			public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			//we do something
 			}
-			
-			public void Sync(String table_name, int ID) {
+			//Table_name skal være navnet på den table(altså navnet på metoden) dataen skal indsættes i
+			public void InsertDatabase(String table_name, int ID) {
 				
 				SQLiteDatabase rdb = getReadableDatabase();
 				// Query: Find den sidste fra denne brugers tilføjet
@@ -71,10 +73,25 @@ public class LocalDatabase extends SQLiteOpenHelper {
 						+ "WHERE " + ID_DATA + " = " 
 						+ ("SELECT MAX(ID_DATA) FROM " + table_name);
 				
-				//Cursor c = rdb.rawQuery(query, null);
-				//c.moveToFirst();
-				// Data access object 
-
+				Cursor c = rdb.rawQuery(query, null);
+				c.moveToFirst();
+				
+				
+				DataType();
+				//cursor object to custom object
+				
+				
+				
+				
+				int column = c.getColumnIndex(CHECK);
+				int check = c.getInt(column);
+								
+				if(check == 1) {
+					//Local_Add();
+				}
+				else {
+					//Online_Add();
+				}
 				//if checked true
 
 				//Call Local_Add
@@ -85,8 +102,14 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				
 			}
 			
+			//public ESM_Datatype DataType() {
+				//ESM_Datatype Data = new ESM_Datatype();
+				
+				//return Data;
+			//}
 			
-			public void Local_Add(String table_name) {
+			
+			public void Local_Add(String table_name, ESM_Datatype Data) {
 				// Add data to database on mobile device
 				
 				ContentValues Values = new ContentValues();
@@ -109,7 +132,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				wdb.close(); 
 			}
 			
-			public void Online_Add(String Table_name, Boolean Check, int ID, int Data, String Position) {
+			public void Online_Add(String Table_name, ESM_Datatype Data) {
 				
 				
 				// Add data to online database

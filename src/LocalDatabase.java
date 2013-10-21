@@ -70,8 +70,8 @@ public class LocalDatabase extends SQLiteOpenHelper {
 						+ "WHERE " + ID_DATA + " = " 
 						+ ("SELECT MAX(ID_DATA) FROM " + table_name);
 				
-				Cursor c = rdb.rawQuery(query, null);
-				c.moveToFirst();
+				//Cursor c = rdb.rawQuery(query, null);
+				//c.moveToFirst();
 				// Data access object 
 
 				//if checked true
@@ -101,9 +101,9 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				
 				SQLiteDatabase wdb = getWritableDatabase();
 				
-				wdb.insert(table_name, nullColumnHack, values)
+				//wdb.insert(table_name, nullColumnHack, values)
 				
-				Online_Add();
+				//Online_Add();
 				
 				wdb.close(); 
 			}
@@ -124,14 +124,14 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				
 				ContentValues Values = new ContentValues();
 				
-				Values.put(key, value);
+				//Values.put(key, value);
 				
 				SQLiteDatabase wdb = getWritableDatabase();
 				
 				//whereClause: the optional WHERE clause to apply when updating. Passing null will update all rows.
 				//whereArgs:	You may include ?s in the where clause, which will be replaced by the values from whereArgs. The values will be bound as Strings
 				
-				wdb.update(Table_name, Values, whereClause, whereArgs)
+				//wdb.update(Table_name, Values, whereClause, whereArgs)
 				
 				wdb.close();
 				

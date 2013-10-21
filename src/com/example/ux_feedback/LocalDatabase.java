@@ -89,7 +89,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				if(check == 1) {
 					//Local_Add();
 				}
-				else {
+				else { 
 					//Online_Add();
 				}
 				//if checked true

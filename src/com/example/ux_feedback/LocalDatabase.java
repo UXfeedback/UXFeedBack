@@ -77,7 +77,7 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				c.moveToFirst();
 				
 				
-				DataType();
+				//DataType();
 				//cursor object to custom object
 				
 				

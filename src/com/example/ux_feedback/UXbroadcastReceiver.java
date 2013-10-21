@@ -19,9 +19,9 @@ public class UXbroadcastReceiver extends BroadcastReceiver {
 		
 		if(condition)		
 		{
-			//Intent intent = new Intent(arg0, SurveyPopup.class);
-			//intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			//arg0.startActivity(intent);
+			Intent intent = new Intent(arg0, SurveyPopup_Method1.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			arg0.startActivity(intent);
 			
 		}
 		else

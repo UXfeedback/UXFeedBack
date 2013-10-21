@@ -2,15 +2,191 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SurveyPopup_Method1" >
-
+    
+    <!-- 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="Survey - Part One"
+        android:paddingBottom="10dp"
+        />
+     -->
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentTop="true"
+    	android:id="@+id/m1_q1_layout" >
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/m1_q1" />
+    	<TextView
+    	    android:paddingLeft="5dp"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/m1_q1_field" 
+        	android:text="1"
+        	/>
+    </LinearLayout>
+    <SeekBar
+        android:layout_below="@id/m1_q1_layout"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:max="6"
+    	android:id="@+id/m1_q1_seekBar" />
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/m1_q1_seekBar"
+    	android:id="@+id/m1_q2_layout">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/m1_q2" />
+    	<TextView
+    	    android:paddingLeft="5dp"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/m1_q2_field"
+        	android:text="1" 
+        	/>        
+    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:max="6"    	
+    	android:id="@+id/m1_q2_seekBar"
+    	android:layout_below="@id/m1_q2_layout" />
+    <!-- 
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/m1_q3" />
+    	<TextView
+    	    android:paddingLeft="5dp"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/m1_q3_field"
+        	android:text="1" 
+        	/>        
+    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:max="6"    	
+    	android:id="@+id/m1_q4_seekBar" />  
+    	
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/m1_q4" />
+    	<TextView
+    	    android:paddingLeft="5dp"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/m1_q4_field"
+        	android:text="1" 
+        	/>        
+    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:max="6"    	
+    	android:id="@+id/m1_q4_seekBar" />
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/m1_q5" />
+    	<TextView
+    	    android:paddingLeft="5dp"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/m1_q5_field"
+        	android:text="1" 
+        	/>        
+    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:max="6"    	
+    	android:id="@+id/m1_q5_seekBar" />
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/m1_q6" />
+    	<TextView
+    	    android:paddingLeft="5dp"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/m1_q6_field"
+        	android:text="1" 
+        	/>        
+    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:max="6"    	
+    	android:id="@+id/m1_q6_seekBar" />
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+    	<TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/m1_q7" />
+    	<TextView
+    	    android:paddingLeft="5dp"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:id="@+id/m1_q7_field"
+        	android:text="1" 
+        	/>        
+    </LinearLayout>
+    <SeekBar
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:max="6"    	
+    	android:id="@+id/m1_q7_seekBar" />
+    
+    -->
+    <Button 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Next" />  
+
+    
+
+    
 
 </RelativeLayout>

@@ -65,10 +65,11 @@ public class LocalDatabase extends SQLiteOpenHelper {
 			//we do something
 			}
 			//Table_name skal være navnet på den table(altså navnet på metoden) dataen skal indsættes i
+			//MANGLER: Hvilket data får denne funktion???
 			public void InsertDatabase(String table_name, int ID) {
 				
 				SQLiteDatabase rdb = getReadableDatabase();
-				// Query: Find den sidste fra denne brugers tilføjet
+				//Query: Finder den sidste fra denne bruger
 				String query = "SELECT * FROM " + table_name 
 						+ "WHERE " + ID_DATA + " = " 
 						+ ("SELECT MAX(ID_DATA) FROM " + table_name);
@@ -76,15 +77,13 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				Cursor c = rdb.rawQuery(query, null);
 				c.moveToFirst();
 				
+				ESM_Datatype Data = DataType(table_name);
 				
-				//DataType();
+				
 				//cursor object to custom object
-				
-				
-				
-				
+
 				int column = c.getColumnIndex(CHECK);
-				int check = c.getInt(column);
+				int check = c.getInt(column); 
 								
 				if(check == 1) {
 					//Local_Add();
@@ -101,12 +100,21 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				//Call Online_Add
 				
 			}
-			
-			//public ESM_Datatype DataType() {
-				//ESM_Datatype Data = new ESM_Datatype();
+			//MANGLER: De variabler der skal indsættes!!
+			public ESM_Datatype DataType(String methode) {
 				
-				//return Data;
-			//}
+				// MANGLER: if sætning skal være noget andet!!
+				if(methode == "type") {
+					ESM_Datatype Data = new ESM_Datatype(0, null, null);
+					return Data;
+				}
+				else {
+					ESM_Datatype Data = new ESM_Datatype(0, null);
+					return Data;
+				}
+				
+				
+			}
 			
 			
 			public void Local_Add(String table_name, ESM_Datatype Data) {

@@ -20,10 +20,17 @@ public class LocalDatabase extends SQLiteOpenHelper {
 		
 		//TABLE 2
 		public static String TABLE_NAME2 = "Methode_2";
+		public static String DATA2 = "DATA2";
+		public static String CHECK2 = "CHECK2";
+		public static String ID_USER2 = "ID_USER2";
+
 		
 		//TABLE 3
 		public static String TABLE_NAME3 = "USE_DATA";
 		public static String AKTIVITY = "AKTIVITY";
+		public static String CHECK3 = "CHECK3";
+		public static String ID_USER3 = "ID_USER3";
+
 		
 		private static final String DATABASE_NAME = "localdatabase";
 			private static final int DATABASE_VERSION = 1;
@@ -46,17 +53,17 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				 
 				 String Table2 = "CREATE TABLE " + TABLE_NAME2
 						 + " (" + ID_DATA + "INTEGER PRIMARY AUTOINCREMENT,"
-						 + ID_USER + " INTEGER,"
-						 + DATA + " TEXT,"
-						 + CHECK + " INT)";
+						 + ID_USER2 + " INTEGER,"
+						 + DATA2 + " TEXT,"
+						 + CHECK2 + " INT)";
 				db.execSQL(Table2);
 				
 				String Table3 = "CREATE TABLE " + TABLE_NAME3
 						+ " (" + ID_DATA + "INTEGER PRIMARY AUTOINCREMENT,"
-						+ ID_USER + " INTEGER,"
+						+ ID_USER3 + " INTEGER,"
 						+ AKTIVITY + "TEXT, "
 						+ DATE + " DATETIME, "
-						+ CHECK + " INT)";
+						+ CHECK3 + " INT)";
 				db.execSQL(Table3);
 			}
 			
@@ -77,8 +84,8 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				Cursor c = rdb.rawQuery(query, null);
 				c.moveToFirst();
 				
+				//MANGLER: Dataet funktionen får
 				ESM_Datatype Data = DataType(table_name);
-				
 				
 				//cursor object to custom object
 
@@ -86,18 +93,19 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				int check = c.getInt(column); 
 								
 				if(check == 1) {
-					//Local_Add();
+					//Local_Add(table_name, Data);
 				}
 				else { 
-					//Online_Add();
+					
+					//Cursor object to ESM_Datatype
+					ESM_Datatype Data_lost = DataType(table_name);
+					
+					
+					//Online_Add(table_name, Data_lost);
+					
+					
+					InsertDatabase(table_name, ID); //Mangler de data function får fra broadcast reciever
 				}
-				//if checked true
-
-				//Call Local_Add
-
-				//else
-				
-				//Call Online_Add
 				
 			}
 			//MANGLER: De variabler der skal indsættes!!

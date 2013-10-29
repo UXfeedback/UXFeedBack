@@ -18,6 +18,8 @@ public class OnlineDatabase extends AsyncTask {
 	//Table_name skal være navnet på den table(altså navnet på metoden) dataen skal indsættes i
 	//MANGLER: Hvilket data får denne funktion???
 	
+	//MANGLER: LAV OM TIL SERVICE
+	
 	@Override
 	protected Object doInBackground(Object... params) {
 		// TODO Auto-generated method stub

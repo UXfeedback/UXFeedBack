@@ -1,4 +1,7 @@
 package com.example.ux_feedback;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -71,6 +74,8 @@ public class LocalDatabase extends SQLiteOpenHelper {
 			public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			//we do something
 			}
+			
+			
 			//Table_name skal være navnet på den table(altså navnet på metoden) dataen skal indsættes i
 			//MANGLER: Hvilket data får denne funktion???
 			public void InsertDatabase(String table_name, int ID) {
@@ -120,8 +125,6 @@ public class LocalDatabase extends SQLiteOpenHelper {
 					ESM_Datatype Data = new ESM_Datatype(0, null);
 					return Data;
 				}
-				
-				
 			}
 			
 			
@@ -148,35 +151,41 @@ public class LocalDatabase extends SQLiteOpenHelper {
 				wdb.close(); 
 			}
 			
-			public void Online_Add(String Table_name, ESM_Datatype Data) {
+			
+			public void Online_Add(String Table_name, ESM_Datatype Data, String url_add) {
+				JSONParser jsonParser = new JSONParser();
+				JSONObject json = jsonParser.makeHttpRequest(url_add);
+				String TAG_SUCCESS = "succes";
 				
-				
-				// Add data to online database
-				
-				//IF TIMEOUTED:
-				
-				//Pending list (DATA_ID Local database - Checked)
-				//Timer
-				//Call Online_Add
-				//Close
-				
-				//IF CONFIRMATION: 
-				
-				ContentValues Values = new ContentValues();
-				
-				//Values.put(key, value);
-				
-				SQLiteDatabase wdb = getWritableDatabase();
-				
-				//whereClause: the optional WHERE clause to apply when updating. Passing null will update all rows.
-				//whereArgs:	You may include ?s in the where clause, which will be replaced by the values from whereArgs. The values will be bound as Strings
-				
-				//wdb.update(Table_name, Values, whereClause, whereArgs)
-				
-				wdb.close();
+				// check for success tag
+		        try {
+		            int success = json.getInt(TAG_SUCCESS);
+
+		            if (success == 1) {
+		            	
+		            	LocalDatabase ldb = new LocalDatabase(null);
+		            	//Sætte check to 1 ved localdatabase 
+						SQLiteDatabase wdb = ldb.getWritableDatabase();
+						
+						//whereClause: the optional WHERE clause to apply when updating. Passing null will update all rows.
+						//whereArgs:	You may include ?s in the where clause, which will be replaced by the values from whereArgs. The values will be bound as Strings
+						
+						//wdb.update(Table_name, Values, whereClause, whereArgs)
+
+						wdb.close();
+						
+						
+		            } else {
+		            	
+						//Pending list (DATA_ID Local database - Checked)
+						//Timer
+						//Online_Add();
+
+		            }
+		        } catch (JSONException e) {
+		            e.printStackTrace();
+		        }
 				
 			}
-		
-		
-		
+
 }

@@ -30,11 +30,26 @@
             android:name="com.example.ux_feedback.SurveyPopup_Method2"
             android:label="@string/title_activity_survey_popup__method2" >
         </activity>
-        <receiver android:name=".UXBroadcastReceiver">
+
+        <receiver android:name="com.example.ux_feedback.UXBroadcastReceiver" >
             <intent-filter>
-                <action android:name="ACTION_MEASURE_UX"></action>
-            </intent-filter>            
+                <action android:name="ACTION_MEASURE_UX" >
+                </action>
+            </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.example.ux_feedback.Survey_method1_part1"
+            android:label="@string/title_activity_survey_method1_part1" >
+        </activity>
+        <activity
+            android:name="com.example.ux_feedback.Survey_method1_part2"
+            android:label="@string/title_activity_survey_method1_part2" >
+        </activity>
+        <activity
+            android:name="com.example.ux_feedback.Survey_method1_part3"
+            android:label="@string/title_activity_survey_method1_part3" >
+        </activity>
     </application>
 
 </manifest>

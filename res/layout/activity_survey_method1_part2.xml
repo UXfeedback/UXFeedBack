@@ -1,0 +1,373 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"        
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Survey_method1_part2"
+    android:id="@+id/ScrollView_m1_p2">    
+    
+<LinearLayout 
+    android:paddingRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"    
+    android:orientation="vertical">
+    
+    <!-- Question 11 -->
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q11_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q11_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup
+    	    android:id="@+id/RadioGroup_m1_q11"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>    
+
+<!-- Question 12 -->
+    <LinearLayout        
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q12_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q12_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q12"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+
+    <!-- Question 13 -->
+    
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q13_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q13_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q13"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+	
+    <!-- Question 14 -->
+    
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q14_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q14_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q14"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+
+    <!-- Question 15 -->
+    
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q15_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q15_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q15"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+
+    <!-- Question 16 -->
+    
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q16_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q16_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q16"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+    
+    <!-- Question 17 -->
+    
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q17_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q17_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q17"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+
+    <!-- Question 18 -->
+    
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q18_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q18_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q18"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+
+    <!-- Question 19 -->
+    
+    <LinearLayout
+    android:orientation="vertical"       
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    	<RelativeLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content" >
+    	    <TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q19_L"
+    	    android:layout_alignParentLeft="true"
+    	    android:layout_alignParentTop="true"/> 
+    	 	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:text="@string/m1_q9_R"
+    	    android:layout_alignParentRight="true"
+    	    android:layout_alignParentTop="true"/>    	    
+    	</RelativeLayout> 
+    	<RadioGroup	   
+    	    android:id="@+id/RadioGroup_m1_q19"
+    	    android:orientation="horizontal"
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="wrap_content">
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />
+    	    <RadioButton android:layout_weight="1" />    	    
+    	</RadioGroup>    	 
+</LinearLayout>
+
+    <View style="@style/LineSeparator"/>
+    
+    <Button 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:text="Næste" 
+        android:layout_margin="5dp"
+        android:onClick="btn_next_clicked"/>
+</LinearLayout>
+ </ScrollView>

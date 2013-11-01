@@ -55,7 +55,7 @@ public class OnlineDatabase extends AsyncTask {
 			//Cursor object to ESM_Datatype
 			ESM_Datatype Data_lost = ldb.DataType(table_name);
 			
-			String url_add2 = "table_name=" + table_name + "ID=" + ID + "Data=" + Data;
+			String url_add2 = "table_name=" + table_name + "&ID=" + ID + "&Data=" + Data;
 			
 			
 			//Online_Add(table_name, Data_lost);

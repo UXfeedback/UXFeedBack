@@ -31,10 +31,9 @@
             android:label="@string/title_activity_survey_popup__method2" >
         </activity>
 
-        <receiver android:name="com.example.ux_feedback.UXBroadcastReceiver" >
+        <receiver android:name=".UXbroadcastReceiver">
             <intent-filter>
-                <action android:name="ACTION_MEASURE_UX" >
-                </action>
+                <action android:name="ACTION_MEASURE_UX"/>
             </intent-filter>
         </receiver>
 

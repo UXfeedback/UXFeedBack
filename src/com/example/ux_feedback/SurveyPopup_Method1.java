@@ -1,92 +1,48 @@
 package com.example.ux_feedback;
 
+import java.util.Collection;
+import java.util.LinkedList;
+
+import android.R.integer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class SurveyPopup_Method1 extends Activity {
-	
-	SeekBar sb1;
-	SeekBar sb2;
-	SeekBar sb3;
-	SeekBar sb4;
-	SeekBar sb5;
-	SeekBar sb6;
-	SeekBar sb7;
-	
-	TextView tv1;
-	TextView tv2;
-	TextView tv3;
-	TextView tv4;
-	TextView tv5;
-	TextView tv6;
-	TextView tv7;
-	
-	
+public class SurveyPopup_Method1 extends Activity {	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_survey_popup__method1);
-		/*
-		sb1 = (SeekBar)findViewById(R.id.m1_q1_seekBar);
-		sb2 = (SeekBar)findViewById(R.id.m1_q2_seekBar);
 		
-		sb1.setOnSeekBarChangeListener(OnSeekBarProgress);
-		sb2.setOnSeekBarChangeListener(OnSeekBarProgress);
+		combinedResults = new LinkedList<Integer>();
 		
+		SharedPreferences preferences = getSharedPreferences("surveyPrefs", 0);
+		Boolean SurveyCompleted = preferences.getBoolean("SurveyCompleted", false);
 		
-		tv1 = (TextView)findViewById(R.id.m1_q1_field);
-		tv2 = (TextView)findViewById(R.id.m1_q2_field);
-		*/
+		if(SurveyCompleted){
+			ShowEndSurveyUI();
+		}
+		else{
+			ShowStartSurveyUI();
+		}
+		
 	}
-	/*
-	OnSeekBarChangeListener OnSeekBarProgress =
-	        new OnSeekBarChangeListener() {
-
-				@Override
-				public void onProgressChanged(SeekBar s, int value,
-						boolean touch) {
-					
-					if(s.getId() == R.id.m1_q1_seekBar)
-					{
-						UpdateTextView(tv1, value);
-					}
-					else if (s.getId() == R.id.m1_q2_seekBar)
-					{
-						UpdateTextView(tv2, value);
-					}
-				}
-
-				@Override
-				public void onStartTrackingTouch(SeekBar arg0) {
-				}
-
-				@Override
-				public void onStopTrackingTouch(SeekBar arg0) {
-				}
-		
-	};
-	*/
-
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.survey_popup__method1, menu);
 		return true;
 	}
-	/*
-	private void UpdateTextView(TextView v, int value){		
-		String tmp = " "+(value +1);
-		v.setText(tmp);		
-	}
-	*/
+	
+	LinkedList<Integer> combinedResults;
 	
 	int PAGE_1_ACTIVITY = 1;
 	int PAGE_2_ACTIVITY = 2;
@@ -98,6 +54,22 @@ public class SurveyPopup_Method1 extends Activity {
 	Boolean P1_Complete;
 	Boolean P2_Complete;
 	Boolean P3_Complete;
+	
+	private void ShowEndSurveyUI(){
+		LinearLayout BeginLinearLayout = (LinearLayout)findViewById(R.id.BeginSurveyUI);
+		BeginLinearLayout.setVisibility(View.GONE);
+		
+		LinearLayout EndLinearLayout = (LinearLayout)findViewById(R.id.EndSurveyUI);
+		EndLinearLayout.setVisibility(View.VISIBLE);		
+	}
+	
+	public void ShowStartSurveyUI(){
+		LinearLayout BeginLinearLayout = (LinearLayout)findViewById(R.id.BeginSurveyUI);
+		BeginLinearLayout.setVisibility(View.VISIBLE);
+		
+		LinearLayout EndLinearLayout = (LinearLayout)findViewById(R.id.EndSurveyUI);
+		EndLinearLayout.setVisibility(View.GONE);		
+	}
 	
 	public void startP1(View v){
 		Intent intent = new Intent(this, Survey_method1_part1.class);	
@@ -114,7 +86,11 @@ public class SurveyPopup_Method1 extends Activity {
 		startActivityForResult(intent,PAGE_3_ACTIVITY);
 	}
 	
+	public void End(View v){
+		this.finish();
+	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
@@ -122,8 +98,11 @@ public class SurveyPopup_Method1 extends Activity {
 		
 		if(requestCode == PAGE_1_ACTIVITY){
 			if(resultCode == RESULT_OK){
-				TextView view = (TextView)findViewById(R.id.TextView_m1_p1_status);
-				view.setText("Fuldført.");
+				P1_Complete = true;
+				Bundle bundle =	data.getExtras();
+				combinedResults.addAll((Collection<? extends Integer>) bundle.get("result"));
+				//TextView view = (TextView)findViewById(R.id.TextView_m1_p1_status);
+				//view.setText("Fuldført.");
 				startP2(null);
 			}
 			else {
@@ -132,8 +111,11 @@ public class SurveyPopup_Method1 extends Activity {
 		}
 		else if (requestCode == PAGE_2_ACTIVITY){
 			if(resultCode == RESULT_OK){
-				TextView view = (TextView)findViewById(R.id.TextView_m1_p2_status);
-				view.setText("Fuldført.");
+				P2_Complete = true;
+				Bundle bundle =	data.getExtras();
+				combinedResults.addAll((Collection<? extends Integer>) bundle.get("result"));
+				//TextView view = (TextView)findViewById(R.id.TextView_m1_p2_status);
+				//view.setText("Fuldført.");
 				startP3(null);
 			}
 			else {
@@ -142,8 +124,22 @@ public class SurveyPopup_Method1 extends Activity {
 		}
 		else if (requestCode == PAGE_3_ACTIVITY){
 			if(resultCode == RESULT_OK){
-				TextView view = (TextView)findViewById(R.id.TextView_m1_p3_status);
-				view.setText("Fuldført.");			
+				P3_Complete = true;
+				Bundle bundle =	data.getExtras();
+				combinedResults.addAll((Collection<? extends Integer>) bundle.get("result"));
+				//TextView view = (TextView)findViewById(R.id.TextView_m1_p3_status);
+				//view.setText("Fuldført.");
+				if(P1_Complete == true && P2_Complete == true && P3_Complete == true){
+					
+					ShowEndSurveyUI();
+					//and add data to the database.
+					/*
+					SharedPreferences preferences = getSharedPreferences("surveyPrefs", 0);
+					SharedPreferences.Editor editor = preferences.edit();
+					editor.putBoolean("SurveyCompleted", true);
+					editor.commit();
+					*/
+				}
 			}
 			else {
 				

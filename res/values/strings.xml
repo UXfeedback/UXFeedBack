@@ -67,5 +67,6 @@
     <string name="title_activity_survey_method1_part2">Spørgeskema - Del 2 af 3</string>
     <string name="title_activity_survey_method1_part3">Spørgeskema - Del 3 af 3</string>    
     <string name="Questionnaire_instructions">Her står der noget tekst om hvordan brugerne skal forholde sig til spørgeskemaet.</string>
+    <string name="Questionnaire_thanks">Tak for din deltagelse i vores undersøgelse.</string>
 
 </resources>

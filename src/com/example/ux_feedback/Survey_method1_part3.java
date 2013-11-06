@@ -49,26 +49,36 @@ public class Survey_method1_part3 extends Activity {
 		groups.add((RadioGroup)findViewById(R.id.RadioGroup_m1_q28));		
 	}
 	
-	private RadioGroup uncompletedGroup;
-	
-	private Boolean GetData(){
-		boolean isComplete = true;
-		
+	private Boolean CompleteSurveyCheck(){		
+		boolean isComplete = true;		
 		for(RadioGroup rg: groups){
-			int index = rg.indexOfChild(findViewById(rg.getCheckedRadioButtonId()));			
-			results.add(index +1);
+			int index = rg.indexOfChild(findViewById(rg.getCheckedRadioButtonId()));
 			
 			if(index == -1){
-				isComplete = false;
-				
-				if(uncompletedGroup == null){
-					uncompletedGroup = rg;
-				}
-				
-				
+				isComplete = false;					
+				LinearLayout parent = (LinearLayout)rg.getParent();
+				parent.setBackgroundResource(R.drawable.survey_error_background);
+                
+                if(incompletedGroup == null){
+                	incompletedGroup = rg;
+                }
+			}
+			else {
+				LinearLayout parent = (LinearLayout)rg.getParent();
+                parent.setBackgroundColor(Color.TRANSPARENT);
 			}
 		}
 		return isComplete;
+	}
+	
+	
+	private RadioGroup incompletedGroup;
+	
+	private void GetResultData(){
+		for(RadioGroup rg: groups){
+			int index = rg.indexOfChild(findViewById(rg.getCheckedRadioButtonId()));			
+			results.add(index +1);
+		}		
 	}
 	
 	private final void focusOnView(){
@@ -76,29 +86,24 @@ public class Survey_method1_part3 extends Activity {
             @Override
             public void run() {            	
             	ScrollView scrollview = (ScrollView)findViewById(R.id.ScrollView_m1_p3);
-                scrollview.scrollTo(0, uncompletedGroup.getTop() - 50);
-                
-                LinearLayout parent = (LinearLayout)uncompletedGroup.getParent();
-                parent.setBackgroundColor(Color.RED);
-                
+            	LinearLayout parent = (LinearLayout)incompletedGroup.getParent();
+                scrollview.scrollTo(0, parent.getTop());
+                incompletedGroup = null;
             }
         });
-    }
+    }	
 	
 	public void btn_next_clicked(View v){
 		
-		Boolean QuestionnaireCompleted = GetData();		
-		
-		if(QuestionnaireCompleted){
+		if(CompleteSurveyCheck()){
+			GetResultData();
 			Intent intent = new Intent();
 			intent.putExtra("result", results);
 			setResult(RESULT_OK,intent);
 			finish();
 		}
-		else {
-			
+		else {			
 			focusOnView();
-			
 			/*
 			Intent intent = new Intent();
 			setResult(RESULT_CANCELED, intent);
@@ -106,5 +111,4 @@ public class Survey_method1_part3 extends Activity {
 			*/
 		}		
 	}
-
 }
